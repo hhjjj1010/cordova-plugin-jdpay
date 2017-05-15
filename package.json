@@ -1,0 +1,30 @@
+{
+  "name": "cordova-plugin-jdpay",
+  "version": "0.0.1",
+  "description": "a cordova plugin, a JS version of JDPay SDK",
+  "cordova": {
+    "id": "cordova-plugin-jdpay",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "alipay",
+    "cordova-plugin-jdpay",
+    "cordova-plugin-jdpauth"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hhjjj1010/cordova-plugin-jdpay.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hhjjj1010/cordova-plugin-jdpay/issues"
+  },
+  "homepage": "https://github.com/hhjjj1010/cordova-plugin-jdpay#readme",
+  "author": "hhjjj1010",
+  "license": "ISC"
+}

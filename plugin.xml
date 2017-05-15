@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-jdpay" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>JDPay</name>
+    <preference name="APP_ID"/>
+    <preference name="MERCHANT"/>
+    <js-module name="JDPay" src="www/JDPay.js">
+        <clobbers target="cordova.plugins.JDPay"/>
+    </js-module>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="JDPay">
+                <param name="android-package" value="cn.hhjjj.jdpay.JDPay"/>
+            </feature>
+            <preference name="jdpappid" value="$APP_ID"/>
+        </config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.INTERNET"/>
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+            <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+            <activity
+                    android:name="com.jdpaysdk.author.AuthorActivity"
+                    android:exported="true">
+                <intent-filter>
+                    <action android:name="android.intent.action.VIEW"/>
+                    <category android:name="android.intent.category.DEFAULT"/>
+                    <category android:name="android.intent.category.BROWSABLE"/>
+                    <data android:scheme="jdpauth$APP_ID"></data>
+                </intent-filter>
+            </activity>
+            <activity
+                    android:name="com.jdpaysdk.author.browser.BrowserActivity"
+                    android:exported="false"
+                    android:screenOrientation="portrait">
+            </activity>
+
+        </config-file>
+
+        <framework src="src/android/jdpay.gradle" custom="true" type="gradleReference"/>
+        <source-file src="src/android/JDPay.java" target-dir="src/cn/hhjjj/jdpay"/>
+        <resource-file src="src/android/libs/jdpayauthor-release.aar" target="libs/jdpayauthor-release.aar"/>
+        <source-file src="src/android/libs/gson-2.2.2.jar" target-dir="libs"/>
+    </platform>
+
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="JDPay">
+                <param name="ios-package" value="JDPay"/>
+            </feature>
+            <preference name="jdpappid" value="$APP_ID"/>
+            <preference name="jdpmerchant" value="$MERCHANT"/>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSAppTransportSecurity">
+            <dict>
+                <key>NSAllowsArbitraryLoads</key>
+                <true/>
+            </dict>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>jdpay</string>
+            </array>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="CFBundleURLTypes">
+            <array>
+                <dict>
+                    <key>CFBundleURLName</key>
+                    <string>jdauth</string>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>jdpauth$APP_ID</string>
+                    </array>
+                </dict>
+            </array>
+        </config-file>
+
+        <header-file src="src/ios/JDPAuthObject.h"/>
+        <header-file src="src/ios/JDPAuthSDK.h"/>
+        <source-file src="src/ios/JDPay.m"/>
+        <source-file src="src/ios/libs/libJDPAuthSDK.a" framework="true"/>
+        <resource-file src="src/ios/libs/JDPAuthResource.bundle"/>
+    </platform>
+
+</plugin>
