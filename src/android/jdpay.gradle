@@ -14,7 +14,7 @@ repositories{
 }
 
 dependencies {
-    compile 'com.android.support:support-v4:+'
+    compile 'com.android.support:support-v4:23+'
     compile files('libs/gson-2.2.2.jar')
     compile(name: 'jdpayauthor-release', ext: 'aar')
 }

@@ -20,6 +20,9 @@
             <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
             <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <activity
                     android:name="com.jdpaysdk.author.AuthorActivity"
                     android:exported="true">
@@ -35,7 +38,6 @@
                     android:exported="false"
                     android:screenOrientation="portrait">
             </activity>
-
         </config-file>
 
         <framework src="src/android/jdpay.gradle" custom="true" type="gradleReference"/>
