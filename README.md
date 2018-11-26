@@ -1,5 +1,11 @@
 # cordova-plugin-jdpay
 京东支付cordova插件 ionic1 cordova phonegap
+
+### NOTE
+注意：插件从 v1.0.0 开始支持 cordova-android 7.0.0，因 cordova-android 7.0.0 修改了 Android 项目结构，因此不兼容之前的版本，升级前请务必注意。
+
+如果项目是之前的cordova-android老版本，请安装插件以前的老版本，在安装的时候带上版本号即可,cordova-plugin-jdpay@0.0.1。
+
 ### 关于京东支付
 接入京东支付的sdk，如果手机没有安装手机京东app，那么会直接进入wap收银台，输入手机号获取验证码进行支付。如果有安装手机京东app，那么就直接调起手机京东app进行支付。
 ***

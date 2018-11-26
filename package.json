@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-jdpay",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "a cordova plugin, a JS version of JDPay SDK",
   "cordova": {
     "id": "cordova-plugin-jdpay",
