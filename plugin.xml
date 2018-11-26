@@ -42,7 +42,7 @@
 
         <framework src="src/android/jdpay.gradle" custom="true" type="gradleReference"/>
         <source-file src="src/android/JDPay.java" target-dir="src/cn/hhjjj/jdpay"/>
-        <resource-file src="src/android/libs/jdpayauthor-release.aar" target="libs/jdpayauthor-release.aar"/>
+        <lib-file src="src/android/libs/jdpayauthor-release.aar" />
         <lib-file src="src/android/libs/gson-2.2.2.jar" target-dir="libs"/>
     </platform>
 
